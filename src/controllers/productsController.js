@@ -33,13 +33,13 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		let productos = Object.values(products);
-		res.render('product-edit-form', {id: req.params.id, productToEdit: productos[req.params.id-1]})
+		res.render('product-edit-form', {id: req.params.id, product: productos[req.params.id-1]})
 	},
 	// Update - Method to update
 	update: (req, res) => {
 		let producto = req.body;
 		console.log(producto)
-		res.redirect('/products');
+		res.redirect('/');
 	},
 
 	// Delete - Delete one product from DB
