@@ -5,7 +5,9 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+const multer = require('multer')
 
+ 
 // ************ express() - (don't touch) ************
 const app = express();
 
@@ -32,7 +34,7 @@ app.use('/', mainRouter);
 app.use('/products', productsRouter);
 
 
-app.listen('3000',()=>console.log('Servidor corriendo en pt 3000'))
+app.listen('3001',()=>console.log('Servidor corriendo en pt 3000'))
 
 
 // ************ DON'T TOUCH FROM HERE ************

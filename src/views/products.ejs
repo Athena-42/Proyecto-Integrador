@@ -16,18 +16,18 @@
 		
 			<div class="col-12 col-sm-6 col-lg-3">
 		
-				<% productos = Object.values(products) %>
-				<% for(let i =0; i < productos.length; i++) {%>
-				<% let producto = (productos[i]) %>	
+				<% for(let i =0; i < products.length; i++) {%>
+				<% let product = (products[i]) %>	
 				<section class="product-box">
-					<a href="/products/<%=producto.id%>">
+					<%=console.log(product)%>
+					<a href="/products/<%=product.id%>">
 						<figure class="product-box_image">
-							<img src="/images/products/<%=producto.image%>" alt="imagen de producto">
+							<img src="/images/products/<%=product.image%>" alt="imagen de producto">
 						</figure>
 						<article class="product-box_data">
-							<h2>$<%=producto.price%></h2>
-							<span><%=producto.discount%>%</span>
-							<p><%=producto.name%></p>
+							<h2>$<%=product.price%></h2>
+							<span><%=product.discount%>%</span>
+							<p><%=product.name%></p>
 							<i class="fas fa-truck"></i>
 						</article>
 					</a>
