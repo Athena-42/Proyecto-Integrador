@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Register form</h1>
+    <br>
+    <form action="/form" method="post">
+        
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" name="email" id="email" value="<%= locals.old && old.email %>">
+        <br>
+        <label for="password">Contraseña:</label><br>
+        <input type="password" name="password" id="password" value="<%= locals.old && old.password %>"><br>
+        <button type="submit">Logueate</button><br>
+        </form>        
+  </body>
+</html>
