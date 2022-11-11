@@ -1,5 +1,15 @@
 <html>
     <body>
         <h1><%= pelicula.title %> </h1>
+        <div>Duración: <%=pelicula.length%> minutos</div>
+        <div>Rating: <%=pelicula.rating%></div>
+        <div>Premios: <%= pelicula.awards%> </div>
+        <div>Fecha de estreno: <%= pelicula.release_date %> </div>
+        <br>
+        <a href="/movies/<%=pelicula.id%>/update"><button type="submit">Editar</button><br><br></a>
+        <form action="/movies/<%=pelicula.id%>/delete" method="POST">
+            <button type="submit">Eliminar</button>
+        </form>
+        <a href="/movies"><button type="submit">Regresar</button></a>     
     </body>
 </html>

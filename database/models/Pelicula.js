@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) =>{
 
 let alias = "Peliculas"
 let cols = {
-    id: {
+    id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -13,6 +13,15 @@ let cols = {
     length:{
         type: DataTypes.INTEGER
     },
+    rating:{
+        type: DataTypes.DECIMAL(3,1)
+    },
+    awards:{
+        type: DataTypes.INTEGER
+    },
+    release_date:{
+        type: DataTypes.DATE
+    }
 };
 let config = {
     tableName: "movies",
