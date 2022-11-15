@@ -17,28 +17,28 @@
 					<br>
 					<div class="col-12 col-md-6">
 						<label for="title" class="form-label">Título:</label>
-						<input type="text" id="title" name="title" value="<%= pelicula.title %>" class="form-input">
+						<input type="text" id="title" name="title" value="<%= pelicula.title %>" class="form-input" required>
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="rating" class="form-label">Rating de la película:</label>
-						<input type="text" id="rating" name="rating" value="<%=pelicula.rating%>" class="form-input">
+						<input type="text" id="rating" name="rating" value="<%=pelicula.rating%>" class="form-input" required>
 					</div>
 					
 					<div class="col-12 col-md-6">
 						<label for="awards" class="form-label">Premios:</label>
-						<input type="text" name="awards" id="awards" value="<%= pelicula.awards%>" class="form-input">
+						<input type="number" name="awards" id="awards" value="<%= pelicula.awards%>" class="form-input" required>
 						</input>
 					</div>
 
 					<div class="col-12 col-md-6">
 						<label for="length" class="form-label">Duración en minutos</label>
-						<input type="text" name="length" id="length" value="<%=pelicula.length%>" class="form-input">
+						<input type="number" name="length" id="length" value="<%=pelicula.length%>" class="form-input" required>
 						</input>
 					</div>
 
 					<div class="col-12">
 						<label for="release_date" class="form-label">Fecha de estreno:</label>
-						<input type="date" name="release_date" id="release_date" value="<%= pelicula.release_date %>" class="form-input">
+						<input type="date" name="release_date" id="release_date" value="<%= pelicula.release_date %>" class="form-input" required>
 						</input>
 					</div>
 					<div class="col-12">

@@ -17,29 +17,44 @@
 					<br>
 					<div class="col-12 col-md-6">
 						<label for="title" class="form-label">Título:</label>
-						<input type="text" id="title" name="title" placeholder="Ej: Harry Potter" class="form-input">
+						<input type="text" value="<%= locals.old && old.title %>"id="title" name="title" placeholder="Ej: Harry Potter" class="form-input" required>
+						<% if (locals.errors && errors.name) { %>
+							<p class="feedback"><%= errors.name %></p>
+							<% } %>
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="rating" class="form-label">Rating de la película:</label>
-						<input type="text" id="rating" name="rating" placeholder="Ej: 7.2" class="form-input">
+						<input type="text" value="<%= locals.old && old.rating%>" id="rating" name="rating" placeholder="Ej: 7.2" class="form-input" required>
+						<% if (locals.errors && errors.name) { %>
+							<p class="feedback"><%= errors.name %></p>
+							<% } %>
 					</div>
 					
 					<div class="col-12 col-md-6">
 						<label for="awards" class="form-label">Premios:</label>
-						<input type="text" name="awards" id="awards" placeholder="Ej: 2" class="form-input">
-						</input>
+						<input type="number" value="<%= locals.old && old.awards %>" name="awards" id="awards" placeholder="Ej: 2" class="form-input" required>
+						<% if (locals.errors && errors.name) { %>
+							<p class="feedback"><%= errors.name %></p>
+							<% } %>	
+					
 					</div>
 
 					<div class="col-12 col-md-6">
 						<label for="length" class="form-label">Duración en minutos</label>
-						<input type="text" name="length" id="length" placeholder="Ej: 180" class="form-input">
-						</input>
+						<input type="number" value="<%= locals.old && old.length %>" name="length" id="length" placeholder="Ej: 180" class="form-input" required>
+						<% if (locals.errors && errors.name) { %>
+							<p class="feedback"><%= errors.name %></p>
+							<% } %>	
+					
 					</div>
 
 					<div class="col-12">
 						<label for="release_date" class="form-label">Fecha de estreno:</label>
-						<input type="date" name="release_date" id="release_date" class="form-input">
-						</input>
+						<input type="date" value="<%= locals.old && old.release_date %>" name="release_date" id="release_date" class="form-input" required>
+						<% if (locals.errors && errors.name) { %>
+							<p class="feedback"><%= errors.name %></p>
+							<% } %>	
+					
 					</div>
 					<div class="col-12">
 						<button type="submit" class="buy-now-button">Guardar película</button>

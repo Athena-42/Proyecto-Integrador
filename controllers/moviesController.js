@@ -1,10 +1,13 @@
 const { where } = require("sequelize");
 let db = require("../database/models")
+const { validationResult } = require('express-validator' );
 
 const moviesController = {
     index: function(req, res, next) {
       
-      db.Peliculas.findAll()
+      db.Peliculas.findAll({
+        include: [{association: "generos"},{association: "actores"}]
+      })
             .then(function(peliculas){
               res.render('movies', {peliculas: peliculas});
             })
@@ -33,7 +36,8 @@ const moviesController = {
       },
 
       create: function(req, res, next) {
-
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
         db.Peliculas.create({
           title: req.body.title,
           rating: req.body.rating,
@@ -41,7 +45,12 @@ const moviesController = {
           release_date: req.body.release_date,
           length: req.body.length
         })
-        res.redirect('/')
+        res.redirect('/') } else {
+
+          res.render('movie-create-form', {errors: errors.mapped(), old: req.body})
+        }
+
+
 
     },
     
@@ -83,7 +92,9 @@ const moviesController = {
 
       detail: function(req, res, next) {
       
-      db.Peliculas.findByPk(req.params.id)
+      db.Peliculas.findByPk(req.params.id, {
+        include: [{association: "generos"},{association: "actores"}]
+      })
             .then(function(pelicula){
               res.render('movie-detail', {pelicula: pelicula});
             })
