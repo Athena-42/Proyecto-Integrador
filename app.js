@@ -4,8 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var moviesRouter = require('./routes/movies');
+let moviesRouter = require('./routes/movies');
 let genresRouter = require('./routes/genres')
+let usersRouter = require('./routes/users')
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.all('/',function(req, res){
 })
 app.use('/movies', moviesRouter);
 app.use('/genres', genresRouter);
+app.use('/users', usersRouter);
 
 
 

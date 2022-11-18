@@ -98,7 +98,7 @@ const moviesController = {
         db.Peliculas.destroy({
           where: {
             id: req.params.id, 
-          },force: true
+          },force: true,
         }).then(()=>{
           return res.redirect('/movies')})
       },
