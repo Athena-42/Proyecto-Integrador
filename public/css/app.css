@@ -19,14 +19,11 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 .feedback{
   color:#ffffff;
   background-color: crimson;
 }
 
-=======
->>>>>>> fe939d1e991e7989bc4fb816fcb9a961e0712c63
 html,
 body {
   min-height: 100vh;
