@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<body>
+	<!-- Header -->
+	<!-- /Header -->
+
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Formulario de edición de películas</h2>
+			</div>
+		</div>
+		<div class="col-12">
+			<form action="/movies/<%=pelicula.id%>/update" method="POST">
+				<div class="row product-detail">
+					<br>
+					<div class="col-12 col-md-6">
+						<label for="title" class="form-label">Título:</label>
+						<input type="text" id="title" name="title" value="<%= pelicula.title %>" class="form-input" required>
+						<% if (locals.errors && errors.title) { %>
+							<p class = "feedback"><%=errors.title.msg%></p><br>
+							<% } %>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="rating" class="form-label">Rating de la película:</label>
+						<input type="text" id="rating" name="rating" value="<%=pelicula.rating%>" class="form-input" required>
+						<% if (locals.errors && errors.rating) { %>
+							<p class = "feedback"><%=errors.rating.msg%></p><br>
+							<% } %>
+					</div>
+					
+					<div class="col-12 col-md-6">
+						<label for="awards" class="form-label">Premios:</label>
+						<input type="number" name="awards" id="awards" value="<%= pelicula.awards%>" class="form-input" required>
+						<% if (locals.errors && errors.awards) { %>
+							<p class = "feedback"><%=errors.awards.msg%></p><br>
+							<% } %>	
+					</input>
+					</div>
+
+					<div class="col-12 col-md-6">
+						<label for="length" class="form-label">Duración en minutos</label>
+						<input type="number" name="length" id="length" value="<%=pelicula.length%>" class="form-input" required>
+						<% if (locals.errors && errors.length) { %>
+							<p class = "feedback"><%=errors.length.msg%></p><br>
+							<% } %>
+					</div>
+
+					<div class="col-12">
+						<label for="release_date" class="form-label">Fecha de estreno:</label>
+						<input type="date" name="release_date" id="release_date" value="<%= pelicula.release_date %>" class="form-input" required>
+						<% if (locals.errors && errors.release_date) { %>
+							<p class = "feedback"><%=errors.release_date.msg%></p><br>
+							<% } %>
+					</div>
+					<div class="col-12">
+						<button type="submit" class="buy-now-button">Guardar película</button>
+						<a href="/movies"><button class="buy-now-button">Regresar</button></a>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- /todos los productos -->
+	
+	<!-- footer -->
+	<!-- /footer -->
+</body>	
+</html>
