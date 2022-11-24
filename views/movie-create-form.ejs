@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 	
-<!-- Include Head -->
+
 <body>
-	<!-- Header -->
-	<!-- /Header -->
+	
 
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
+			<div >
 				<h2 class="products-title">Formulario de creación de películas</h2>
 			</div>
 		</div>
-		<div class="col-12">
+		<div >
 			<form action="/movies/create" method="POST">
 				<div class="row product-detail">
 					<br>
-					<div class="col-12 col-md-6">
+					<div >
 						<label for="title" class="form-label">Título:</label>
 						<input type="text" value="<%= locals.old && old.title %>"id="title" name="title" placeholder="Ej: Harry Potter" class="form-input" required>
 						<% if (locals.errors && errors.title) { %>
 							<p class = "feedback"><%=errors.title.msg%></p><br>
 							<% } %>
 					</div>
-					<div class="col-12 col-md-6">
+					<div >
 						<label for="rating" class="form-label">Rating de la película:</label>
 						<input type="text" value="<%= locals.old && old.rating%>" id="rating" name="rating" placeholder="Ej: 7.2" class="form-input" required>
 						<% if (locals.errors && errors.rating) { %>
@@ -31,7 +30,7 @@
 							<% } %>
 					</div>
 					
-					<div class="col-12 col-md-6">
+					<div >
 						<label for="awards" class="form-label">Premios:</label>
 						<input type="number" value="<%= locals.old && old.awards %>" name="awards" id="awards" placeholder="Ej: 2" class="form-input" required>
 						<% if (locals.errors && errors.awards) { %>
@@ -40,7 +39,7 @@
 					
 					</div>
 
-					<div class="col-12 col-md-6">
+					<div >
 						<label for="length" class="form-label">Duración en minutos</label>
 						<input type="number" value="<%= locals.old && old.length %>" name="length" id="length" placeholder="Ej: 180" class="form-input" required>
 						<% if (locals.errors && errors.length) { %>
@@ -49,7 +48,7 @@
 					
 					</div>
 
-					<div class="col-12">
+					<div >
 						<label for="release_date" class="form-label">Fecha de estreno:</label>
 						<input type="date" value="<%= locals.old && old.release_date %>" name="release_date" id="release_date" class="form-input" required>
 						<% if (locals.errors && errors.release_date) { %>
@@ -57,7 +56,7 @@
 							<% } %>
 					
 					</div>
-					<div class="col-12">
+					<div >
 						<button type="submit" class="buy-now-button">Guardar película</button>
 					</div>
 				</div>
