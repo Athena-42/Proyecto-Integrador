@@ -12,9 +12,12 @@ const moviesController = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
           db.Usuarios.create({
+            id: req.params.id,
             name: req.body.name,
             email: req.body.email,
-          })}else{res.render('', {errors: errors.mapped(), old: req.body})}  
+            password: req.body.password,
+
+          })}else{res.render('register', {errors: errors.mapped(), old: req.body})}  
           },
         
          
