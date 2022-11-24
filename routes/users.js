@@ -13,10 +13,18 @@ let validateUser = [
     .notEmpty().withMessage('Debes completar contraseña')
     .isLength({min:8}).withMessage('La contraseña debe contener al menos 8 caracteres'),
 ];
+let validateUserLogin = [
+    check('email')
+    .notEmpty().withMessage('Debes completar el email')
+    .isEmail().withMessage('El email debe ser válido'),
+    check('password')
+    .notEmpty().withMessage('Debes completar contraseña')
+    .isLength({min:8}).withMessage('La contraseña debe contener al menos 8 caracteres'),
+];
 
 router.get('/register', usersController.registerForm);
 router.post('/register', validateUser, usersController.register)
 router.get('/login', usersController.loginForm);
-router.post('/login', usersController.login);
+router.post('/login', validateUserLogin, usersController.login);
 
 module.exports = router;

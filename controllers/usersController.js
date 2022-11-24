@@ -1,14 +1,25 @@
 let db = require("../database/models")
 let { validationResult } = require('express-validator')
 const usersController = {
-    registerForm: function(req, res){
-        res.render('register');
-      },
+    
     loginForm: function(req, res) {
  
         res.render('login');
           
       },
+
+      login: function(req, res){
+        let errors = validationResult(req);
+        console.log(errors);
+        if (errors.isEmpty()){
+        res.send('Logeado')}else{res.render('login', {errors: errors.mapped(), old: req.body})}
+      },
+
+
+      registerForm: function(req, res){
+        res.render('register');
+      },
+
       register: function(req, res, next){
         let errors = validationResult(req);
         if (errors.isEmpty()) {
@@ -24,9 +35,7 @@ const usersController = {
           },
         
          
-      login: function(req, res){
-        res.send('Logeado')
-      }
+      
       }
     
       
