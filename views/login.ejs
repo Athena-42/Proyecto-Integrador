@@ -6,12 +6,16 @@
         <% if (locals.errors && errors.email) { %>
             <p class = "feedback"><%=errors.email.msg%></p><br>
             <% } %>
+         
         <br>
         <label for="password">Contraseña:</label><br>
         <input type="password" name="password" id="password" value="<%= locals.old && old.password %>"><br>
         <% if (locals.errors && errors.password) { %>
             <p class = "feedback"><%=errors.password.msg%></p><br>
             <% } %>
-        <button type="submit">Loguearse</button><br>
+            <% if (locals.check !=null && check == false) { %>
+                <p class = "feedback">La contraseña ingresada es incorrecta</p><br>
+                <% } %>
+            <button type="submit">Loguearse</button><br>
         </form>        
   </body>

@@ -1,5 +1,6 @@
 let db = require("../database/models")
 let { validationResult } = require('express-validator')
+const bcrypt = require('bcryptjs');
 const usersController = {
     
     loginForm: function(req, res) {
@@ -11,11 +12,16 @@ const usersController = {
       login: function(req, res){
         db.Usuarios.findOne({where: {
           email: req.body.email, 
-        }}).then((usuario)=>{console.log(usuario)})
-        let errors = validationResult(req);
-        console.log(errors);
-        if (errors.isEmpty()){
-        res.send('Logeado')}else{res.render('login', {errors: errors.mapped(), old: req.body})}
+        }}).then(function verification(usuario){
+          console.log(usuario)
+          let check = bcrypt.compareSync(req.body.password, usuario.password);
+          let errors = validationResult(req);
+          console.log(errors);
+          if (errors.isEmpty()&&check){
+          res.send('Logeado')}else{res.render('login', {errors: errors.mapped(), old: req.body, check: check})}
+
+        })
+        
       },
 
 
@@ -30,7 +36,7 @@ const usersController = {
             id: req.params.id,
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
           
           }).then((usuario)=>{console.log(usuario);res.render('login')})
         
