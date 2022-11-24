@@ -1,5 +1,6 @@
 let db = require("../database/models")
-const moviesController = {
+let { validationResult } = require('express-validator')
+const usersController = {
     registerForm: function(req, res){
         res.render('register');
       },
@@ -16,8 +17,10 @@ const moviesController = {
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
-
-          })}else{res.render('register', {errors: errors.mapped(), old: req.body})}  
+          
+          }).then((usuario)=>{console.log(usuario);res.render('login')})
+        
+        }else{res.render('register', {errors: errors.mapped(), old: req.body})}  
           },
         
          
@@ -28,4 +31,4 @@ const moviesController = {
     
       
 
-module.exports = moviesController
+module.exports = usersController

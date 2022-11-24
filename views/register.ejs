@@ -2,9 +2,9 @@
 <form action="/users/register" method="POST">
     <body>
     <label for="name">Nombre:</label><br>
-        <input type="text" name="name" id="name" value="<%= locals.old && old.first_name %>"><br>
-        <% if (locals.errors && errors.first_name) { %>
-            <p class = "feedback"><%=errors.first_name.msg%></p><br>
+        <input type="text" name="name" id="name" value="<%= locals.old && old.name %>"><br>
+        <% if (locals.errors && errors.name) { %>
+            <p class = "feedback"><%=errors.name.msg%></p><br>
             <% } %>
 
         <label for="email">Correo electrónico:</label><br>
