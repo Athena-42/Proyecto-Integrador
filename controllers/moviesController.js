@@ -27,11 +27,11 @@ const moviesController = {
               })
   
       },
-    
+      
       createForm: function(req, res, next) {
-
+        if(req.cookies.esAdmin!=0){
           res.render('movie-create-form')
-
+        }else{res.redirect('/')}
       },
 
       create: function(req, res, next) {
@@ -54,12 +54,12 @@ const moviesController = {
     },
     
     updateForm: function(req, res, next) {
-      
+      if(req.cookies.esAdmin!=0){
       db.Peliculas.findByPk(req.params.id)
             .then(function(pelicula){
               console.log(pelicula.title)
               res.render('movie-edit-form', {pelicula: pelicula});
-            })},
+            })}else{res.redirect('/')}},
 
     update: function(req, res, next) {
 
@@ -86,11 +86,13 @@ const moviesController = {
     res.redirect('/')
 
 },
-      deleteConfirmation: function(req, res, next){
-        db.Peliculas.findByPk(req.params.id)
+      
+    deleteConfirmation: function(req, res, next){
+      if(req.cookies.esAdmin!=0){  
+      db.Peliculas.findByPk(req.params.id)
         .then(function(pelicula){
         res.render('movie-delete', {pelicula: pelicula})})
-},
+}else{res.redirect('/')}},
       
 
       delete: function(req, res, next){
