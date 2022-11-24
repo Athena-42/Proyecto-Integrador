@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 let db = require("../database/models")
 const { validationResult } = require('express-validator' );
 

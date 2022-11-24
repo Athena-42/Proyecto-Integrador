@@ -9,6 +9,9 @@ const usersController = {
       },
 
       login: function(req, res){
+        db.Usuarios.findOne({where: {
+          email: req.body.email, 
+        }}).then((usuario)=>{console.log(usuario)})
         let errors = validationResult(req);
         console.log(errors);
         if (errors.isEmpty()){
