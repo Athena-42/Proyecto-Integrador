@@ -3,12 +3,14 @@ html{
   background-size: auto;
 }
 h1{
-  color: aquamarine; 
+  color: aquamarine; padding-left: 2%; 
 }
 body{font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;}
 ul{list-style: none;display:flex; flex-direction:column;flex-wrap: wrap}
 
 a{font-size: larger; padding: 1vh;}
+
+a.regresar{padding-left: 5%;}
 
 a:link {
   color: rgb(235, 233, 162);
@@ -17,3 +19,9 @@ a:link {
 a:visited {
   color:rgb(229, 231, 106);
 }
+div{padding-left: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(235, 233, 162);
+}
+label{color:rgb(235, 233, 162)}
+form{padding-left: 5%;}
