@@ -5,6 +5,10 @@ html{
 h1{
   color: aquamarine; padding-left: 2%; 
 }
+
+li {
+  display: flex;
+}
 body{font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;}
 ul{list-style: none;display:flex; flex-direction:column;flex-wrap: wrap}
 
@@ -25,3 +29,10 @@ div{padding-left: 5%;
 }
 label{color:rgb(235, 233, 162)}
 form{padding-left: 5%;}
+
+@media (min-width: 1760px){
+  html{
+    background-image: url('https://bloximages.newyork1.vip.townnews.com/chronicleonline.com/content/tncms/assets/v3/editorial/3/f3/3f39fbf6-9ec2-11eb-84b6-57c4732a0d15/6079a37fb5379.image.jpg');
+    background-size: cover;
+  }
+}
