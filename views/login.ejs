@@ -19,7 +19,11 @@
             <% if (locals.check !=null && check == false) { %>
                 <p class = "feedback">La contraseña ingresada es incorrecta</p><br>
                 <% } %>
+            <% if (locals.notFound !=null && notFound) { %>
+                <p class = "feedback">El usuario ingresado no existe</p><br>
+                <% } %>
             <button type="submit">Loguearse</button><br>
-        </form>        
+        </form>
+        <a href="/users/unlog"><button type="submit">Desloguearse</button></a><br>        
   </body>
   </html>

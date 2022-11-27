@@ -13,18 +13,22 @@ const usersController = {
         db.Usuarios.findOne({where: {
           email: req.body.email, 
         }}).then(function verification(usuario){
-
-          let esAdmin = usuario.rol;
+          let errors = validationResult(req);
+          if(usuario==null){return res.render('login', {errors: errors.mapped(), old: req.body, notFound: true})}
+          let esAdmin = 0;
+          if(usuario!=null){esAdmin = usuario.rol};
           res.cookie('esAdmin', esAdmin);
           let check = bcrypt.compareSync(req.body.password, usuario.password);
-          let errors = validationResult(req);
           if (errors.isEmpty()&&check){
-          res.send('Logeado')}else{res.render('login', {errors: errors.mapped(), old: req.body, check: check})}
-
+          return res.send('Logeado')}else{ return res.render('login', {errors: errors.mapped(), old: req.body, check: check})}
+          
         })
         
       },
-
+      unlog: function(req, res){
+        res.cookie('esAdmin', 0)
+        res.redirect('/users/login')
+      },
 
       registerForm: function(req, res){
         res.render('register');
