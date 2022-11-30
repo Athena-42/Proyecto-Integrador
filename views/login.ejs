@@ -24,6 +24,8 @@
                 <% } %>
             <button type="submit">Loguearse</button><br>
         </form>
+        <% console.log(loggedIn);if (locals.loggedIn && loggedIn)  { %>
         <a href="/users/unlog"><button type="submit">Desloguearse</button></a><br>        
-  </body>
+        <% } %>
+    </body>
   </html>

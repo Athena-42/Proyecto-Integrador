@@ -8,7 +8,7 @@ const moviesController = {
         include: [{association: "generos"},{association: "actores"}]
       })
             .then(function(peliculas){
-              res.render('movies', {peliculas: peliculas});
+              res.render('movies', {peliculas: peliculas, loggedIn:req.cookies.loggedIn});
             })
       },
 

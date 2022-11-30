@@ -30,6 +30,15 @@ div{padding-left: 5%;
 label{color:rgb(235, 233, 162)}
 form{padding-left: 5%;}
 
+head.banner{
+  display: flex;
+  flex-direction: row;
+}
+
+h1.title{
+  flex-grow: 0.75;
+}
+
 button.regresar{margin-left: 15%}
 
 @media (min-width: 1760px){

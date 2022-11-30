@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-<link rel="stylesheet" type="text/css" href="css/styles.css"/>
-<head>
-
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<head class="banner">
+	
+	<h1 class="title">Listado de películas</h1>
+	<% if(loggedIn === false){ %> 
+	<a href="/users/login"><button>Login</button></a>
+	<a href="/users/register"><button>Register</button></a>
+	<% }else{ %>
+	<a href="/users/login"><button>Log out</button></a>	 
+	<%  }%> 
 </head>
 <body>
 
-	<h1>Listado de películas</h1>
+	
 	<ul>
 		<% for (let i=0; i<peliculas.length; i++) { %>
 			<li>

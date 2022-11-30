@@ -16,11 +16,14 @@ const usersController = {
           let errors = validationResult(req);
           if(usuario==null){return res.render('login', {errors: errors.mapped(), old: req.body, notFound: true})}
           let esAdmin = 0;
+          res.cookie('loggedIn', false)
           if(usuario!=null){esAdmin = usuario.rol};
           res.cookie('esAdmin', esAdmin);
+          res.cookie('loggedIn', true)
           let check = bcrypt.compareSync(req.body.password, usuario.password);
           if (errors.isEmpty()&&check){
-          return res.send('Logeado')}else{ return res.render('login', {errors: errors.mapped(), old: req.body, check: check})}
+          res.cookie('loggedIn', true)
+          return res.redirect('/movies')}else{ return res.render('login', {errors: errors.mapped(), old: req.body, check: check})}
           
         })
         
