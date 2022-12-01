@@ -4,10 +4,12 @@
 <head class="banner">
 	
 	<h1 class="title">Listado de películas</h1>
-	<% if(loggedIn === false){ %> 
+	<% console.log("Logged in = "+loggedIn) %> 
+	<% if(loggedIn == false){ %>
+	<% console.log('llegué') %>  
 	<a href="/users/login"><button>Login</button></a>
 	<a href="/users/register"><button>Register</button></a>
-	<% }else{ %>
+	<% }else if(loggedIn == true){ %>
 	<a href="/users/login"><button>Log out</button></a>	 
 	<%  }%> 
 </head>

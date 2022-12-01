@@ -5,7 +5,7 @@ const usersController = {
     
     loginForm: function(req, res) {
  
-        res.render('login');
+        res.render('login',{loggedIn: req.cookies.loggedIn});
           
       },
 
@@ -30,7 +30,8 @@ const usersController = {
       },
       unlog: function(req, res){
         res.cookie('esAdmin', 0)
-        res.redirect('/users/login')
+        res.cookie('loggedIn', false)
+        res.render('login')
       },
 
       registerForm: function(req, res){
