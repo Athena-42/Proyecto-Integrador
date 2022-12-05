@@ -8,11 +8,9 @@
 </head>
 <body>
 	<a href="/users/register"><button>Register</button></a>
-	<% if(locals.loggedIn && loggedIn){ %>  
-		<a href="/users/login"><button>Log out</button></a>
-		<%}else{%>
-		<a href="/users/login"><button>Login</button></a>	 
-		<% }%> 
+	  
+	<a href="/users/login"><button>Login</button></a>
+		
 	<ul>
 		<% for (let i=0; i<peliculas.length; i++) { %>
 			<li>

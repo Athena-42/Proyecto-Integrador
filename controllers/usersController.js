@@ -14,16 +14,18 @@ const usersController = {
           email: req.body.email, 
         }}).then(function verification(usuario){
           let errors = validationResult(req);
-          if(usuario==null){return res.render('login', {errors: errors.mapped(), old: req.body, notFound: true})}
+          if(usuario==null){return res.render('login', {loggedIn: req.cookies.loggedIn,errors: errors.mapped(), old: req.body, notFound: true})}
           let esAdmin = 0;
           res.cookie('loggedIn', false)
-          if(usuario!=null){esAdmin = usuario.rol};
+          if(usuario!=null){esAdmin = usuario.rol
+          console.log("es admin = "+esAdmin)};
           res.cookie('esAdmin', esAdmin);
           res.cookie('loggedIn', true)
+          console.log("loggedIn = "+req.cookies.loggedIn)
           let check = bcrypt.compareSync(req.body.password, usuario.password);
           if (errors.isEmpty()&&check){
           res.cookie('loggedIn', true)
-          return res.redirect('/movies')}else{ return res.render('login', {errors: errors.mapped(), old: req.body, check: check})}
+          return res.redirect('/movies')}else{ return res.render('login', {loggedIn: req.cookies.loggedIn, errors: errors.mapped(), old: req.body, check: check})}
           
         })
         
