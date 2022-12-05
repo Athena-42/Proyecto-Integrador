@@ -4,23 +4,19 @@
 <head class="banner">
 	
 	<h1 class="title">Listado de películas</h1>
-	<% console.log("Logged in = "+loggedIn) %> 
-	<% if(loggedIn == false){ %>
-	<% console.log('llegué') %>  
-	<a href="/users/login"><button>Login</button></a>
-	<a href="/users/register"><button>Register</button></a>
-	<% }else if(loggedIn == true){ %>
-	<a href="/users/login"><button>Log out</button></a>	 
-	<%  }%> 
+	
 </head>
 <body>
-
-	
+	<a href="/users/register"><button>Register</button></a>
+	<% if(locals.loggedIn && loggedIn){ %>  
+		<a href="/users/login"><button>Log out</button></a>
+		<%}else{%>
+		<a href="/users/login"><button>Login</button></a>	 
+		<% }%> 
 	<ul>
 		<% for (let i=0; i<peliculas.length; i++) { %>
 			<li>
-				<a href="/movies/<%=peliculas[i].id%>"><%= peliculas[i].title %></a>
-				 
+				<a href="/movies/<%=peliculas[i].id%>"><%= peliculas[i].title %></a>	 
 			</li> 
 			<% } %> 
 	</ul>
