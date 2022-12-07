@@ -110,7 +110,7 @@ const moviesController = {
         include: [{association: "generos"},{association: "actores"}]
       })
             .then(function(pelicula){
-              res.render('movie-detail', {pelicula: pelicula, esAdmin : req.cookies.esAdmin});
+              res.render('movie-detail', {pelicula: pelicula, esAdmin: req.cookies.esAdmin});
             })
       },
 

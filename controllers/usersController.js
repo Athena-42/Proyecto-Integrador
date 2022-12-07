@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const usersController = {
     
     loginForm: function(req, res) {
- 
+        console.log("logged in = "+req.cookies.loggedIn)
         res.render('login',{loggedIn: req.cookies.loggedIn});
           
       },
@@ -33,7 +33,7 @@ const usersController = {
       unlog: function(req, res){
         res.cookie('esAdmin', 0)
         res.cookie('loggedIn', false)
-        res.render('login')
+        res.redirect('/users/login')
       },
 
       registerForm: function(req, res){
