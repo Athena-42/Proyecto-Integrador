@@ -35,6 +35,8 @@ head.banner{
   flex-direction: row;
 }
 
+p.feedback{color:rgb(238, 107, 0)}
+
 h1.title{
   flex-grow: 0.75;
 }
