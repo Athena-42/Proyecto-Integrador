@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 11:09 PM
+-- Generation Time: Dec 08, 2022 at 01:45 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -640,7 +640,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `rol`) VALUES
-(1, 'Sofía', 'sandovalsofi99@gmail.com', '$2a$10$i4D3fOO0SnjWXKTwlWsZ0eTV9BMQFZq3DVdSwwyrs9rpViAsa/n/K', NULL, NULL, NULL, 0),
+(1, 'Sofía', 'sandovalsofi99@gmail.com', '$2a$10$i4D3fOO0SnjWXKTwlWsZ0eTV9BMQFZq3DVdSwwyrs9rpViAsa/n/K', NULL, NULL, NULL, 1),
 (2, 'Prueba', 'prueba@gmail.com', '$2a$10$5aLD.wBAKHrdejFnTIEDTukpUMIguZz0Yw/pp0z/kvN3Wm41qMyHm', NULL, NULL, NULL, 0);
 
 --
