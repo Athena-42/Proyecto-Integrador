@@ -1,6 +1,6 @@
 let db = require("../database/models")
 const { validationResult } = require('express-validator' );
-
+const API = 'http://www.omdbapi.com/?apikey=b73b6124&s=';
 const moviesController = {
     index: function(req, res, next) {
       
