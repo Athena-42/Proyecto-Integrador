@@ -36,7 +36,7 @@ const moviesController = {
 
       create: function(req, res, next) {
         let errors = validationResult(req);
-        if (errors.isEmpty()) {
+        if (errors.isEmpty()&&req.cookies.esAdmin!=0) {
         db.Peliculas.create({
           title: req.body.title,
           rating: req.body.rating,
@@ -44,8 +44,8 @@ const moviesController = {
           release_date: req.body.release_date,
           length: req.body.length
         })
-        res.redirect('/') } else {
-
+        res.redirect('/')} else {
+          console.log(errors)
           res.render('movie-create-form', {errors: errors.mapped(), old: req.body})
         }
 

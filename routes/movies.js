@@ -15,8 +15,7 @@ let validateMovie = [
     check('length')
     .notEmpty().withMessage('Debes completar la duración de la película cantidad de en minutos')
     .isFloat({min:0}).withMessage('Debes completar la duración de la película en cantidad de minutos'),
-    check('date')
-    .notEmpty().withMessage('Debes ingresar la fecha de estreno')
+    
 ];
 
 router.get('/', moviesController.index);
