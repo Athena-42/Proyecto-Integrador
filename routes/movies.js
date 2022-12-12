@@ -14,8 +14,7 @@ let validateMovie = [
     .isInt({min:0}).withMessage('La cantidad de premios no puede ser negativa'),
     check('length')
     .notEmpty().withMessage('Debes completar la duración de la película cantidad de en minutos')
-    .isFloat({min:0}).withMessage('Debes completar la duración de la película en cantidad de minutos'),
-    
+    .isFloat({min:0}).withMessage('Debes completar la duración de la película en cantidad de minutos')
 ];
 
 router.get('/', moviesController.index);
